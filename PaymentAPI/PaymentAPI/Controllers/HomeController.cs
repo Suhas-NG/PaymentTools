@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace PaymentAPI.Controllers
 {
     [ApiController] // automatic 404 etcs
-    [Route("api/Home")]
+    [Route("Api/Home")]
     public class HomeController : ControllerBase
     {
         [HttpGet()]
@@ -14,5 +14,6 @@ namespace PaymentAPI.Controllers
                 new List<object> { new { id=1, Name= "NYC"},
                     new { id=2, Name = "Antwerp" } }); 
         } 
+
     }
 }

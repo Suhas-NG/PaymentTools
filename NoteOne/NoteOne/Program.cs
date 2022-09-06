@@ -9,14 +9,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-//// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger(); //adding swagger request pipeline
-    app.UseSwaggerUI(); //documentation UI
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-app.UseRouting(); // Routing middleware
-app.MapControllers();
 app.UseAuthorization();
+app.MapControllers();
 app.Run();
