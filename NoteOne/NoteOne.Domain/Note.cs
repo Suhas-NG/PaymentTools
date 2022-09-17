@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NoteOne.Domain
 {
     public class Note
     {
-        public int Id { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Guid { get; set; }
         public string? Description { get; set; }
         public DateTime Created { get; set; }
-        public Guid Guid { get; set; }
+   
     }
 
 }

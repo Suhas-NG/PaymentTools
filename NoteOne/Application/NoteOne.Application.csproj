@@ -11,12 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NoteOne.Common\NoteOne.Common.csproj" />
     <ProjectReference Include="..\NoteOne.Domain\NoteOne.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Users\Commands\" />
-    <Folder Include="Users\Queries\GetUsers\" />
+    <ProjectReference Include="..\Persistence\NoteOne.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

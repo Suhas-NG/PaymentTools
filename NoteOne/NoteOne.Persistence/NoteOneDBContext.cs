@@ -5,11 +5,11 @@ namespace NoteOne.Persistence
 {
     public class NoteOneDBContext : DbContext
     {
-        public DbSet<Category> Categories { get; set; } = null!;
-        public DbSet<Note> Notes { get; set; } = null !;
-        public DbSet<Page> Pages { get; set; } = null!;
-        public DbSet<Tag> Tags { get; set; } = null!;
-        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Category>? Category { get; set; }
+        public DbSet<Note>? Notes { get; set; }
+        public DbSet<Page>? Pages { get; set; } 
+        public DbSet<Tag>? Tags  { get; set; }
+        public DbSet<User>? Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
