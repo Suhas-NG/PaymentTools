@@ -6,7 +6,7 @@ namespace NoteOne.Common
     {
         public DateTime GetDateTime()
         {
-            return DateTime.Now.Date;
+            return DateTime.UtcNow;
         }
     }
 }

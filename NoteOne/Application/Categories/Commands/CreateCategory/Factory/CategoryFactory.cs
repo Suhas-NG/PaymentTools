@@ -1,9 +1,4 @@
 ﻿using NoteOne.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NoteOne.Application.Categories.Commands.CreateCategory.Factory
 {
@@ -19,6 +14,8 @@ namespace NoteOne.Application.Categories.Commands.CreateCategory.Factory
 
             category = new Category()
             {
+                UserGuid = user.Guid,
+                Created = date,
                 CategoryName = categoryName,
                 Guid = Guid.NewGuid()
             };

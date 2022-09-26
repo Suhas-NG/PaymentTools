@@ -9,7 +9,5 @@ namespace NoteOne.Infrastructure.Repositories
         public NoteRepository(NoteOneDBContext context) : base(context)
         {
         }
-
-        
     }
 }

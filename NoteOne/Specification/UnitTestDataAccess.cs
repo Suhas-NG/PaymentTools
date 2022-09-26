@@ -17,17 +17,17 @@ namespace NoteOne.Persistence.PersistenceTest
                 context.Database.EnsureCreated();
             }
         }
-        //private void GetUsers()
-        //{
-        //    StringBuilder stringBuilder = new StringBuilder();
-        //    using var context = new NoteOneDBContext();
-        //    var users = context?.Users?.ToList();
-        //    foreach (User user in users)
-        //    {
-        //        stringBuilder.Append(user.UserName+" "+user.Password+" "+user.Guid);
-        //    }
+        private void GetUsers()
+        {
+            //StringBuilder stringBuilder = new StringBuilder();
+            //using var context = new NoteOneDBContext();
+            //var users = context?.Users?.ToList();
+            //foreach (User user in users)
+            //{
+            //    stringBuilder.Append(user.UserName + " " + user.Password + " " + user.Guid);
+            //}
 
-        //}
+        }
 
         //private void AddUsers()
         //{

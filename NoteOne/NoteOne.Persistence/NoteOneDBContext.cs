@@ -5,7 +5,7 @@ namespace NoteOne.Persistence
 {
     public class NoteOneDBContext : DbContext
     {
-        public DbSet<Category>? Category { get; set; }
+        public DbSet<Category>? Categories { get; set; }
         public DbSet<Note>? Notes { get; set; }
         public DbSet<Page>? Pages { get; set; } 
         public DbSet<Tag>? Tags  { get; set; }
@@ -13,7 +13,7 @@ namespace NoteOne.Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost; Database=NoteOne; Username=postgres; Password=postgres");
+            optionsBuilder.UseNpgsql("Host=localhost; Database=NoteOne; Username=postgres; Password=postgres").LogTo(Console.WriteLine);
         } 
      }
 }

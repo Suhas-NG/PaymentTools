@@ -1,6 +1,7 @@
 ﻿using NoteOne.Application.Categories.Commands.CreateCategory.Factory;
 using NoteOne.Application.Interfaces;
 using NoteOne.Common.Dates;
+using NoteOne.Domain;
 
 namespace NoteOne.Application.Categories.Commands.CreateCategory
 {
@@ -17,18 +18,18 @@ namespace NoteOne.Application.Categories.Commands.CreateCategory
             _userRepository = userRepository;
             _categoryFactory = categoryFactory;
         }
-        public bool Execute(CreateCategoryModel model)
+        public Category? Execute(CreateCategoryModel model)
         {
             var user = _userRepository.Get(model.userId);
             var createDate = _dateService.GetDateTime();
             var newCategory = _categoryFactory.Create(createDate, user, model.categoryName);
             if (newCategory != null)
             {
-                bool result = _categoryRepository.Add(newCategory);
+                Category? result = _categoryRepository.Add(newCategory);
                  _categoryRepository.Save();
                 return result;
             }
-            return false;
+            return null;
         }
     }
 }

@@ -11,11 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Responses\" />
-    <Folder Include="Requests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Application\NoteOne.Application.csproj" />
     <ProjectReference Include="..\NoteOne.Domain\NoteOne.Domain.csproj" />
     <ProjectReference Include="..\NoteOne.Infrastructure\NoteOne.Infrastructure.csproj" />

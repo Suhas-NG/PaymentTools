@@ -29,5 +29,5 @@ Install
 -> NpSql.
 
 1.) dotnet ef migrations add InitialCreate -s NoteOne.persistence -p NoteOne.Persistence
-2.) dotnet database ef update -s NoteOne.persistence -p NoteOne.Persistence
+2.) dotnet ef  database update -s NoteOne.persistence -p NoteOne.Persistence
 3.) dotnet ef migrations add AddEmailToUser -s NoteOne.persistence -p NoteOne.Persistence

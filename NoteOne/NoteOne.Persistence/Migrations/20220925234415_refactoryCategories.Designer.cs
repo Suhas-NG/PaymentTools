@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NoteOne.Persistence;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NoteOne.Persistence.Migrations
 {
     [DbContext(typeof(NoteOneDBContext))]
-    partial class NoteOneDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220925234415_refactoryCategories")]
+    partial class refactoryCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,7 +128,7 @@ namespace NoteOne.Persistence.Migrations
             modelBuilder.Entity("NoteOne.Domain.Category", b =>
                 {
                     b.HasOne("NoteOne.Domain.User", null)
-                        .WithMany("Categories")
+                        .WithMany("Categorys")
                         .HasForeignKey("UserGuid");
                 });
 
@@ -156,7 +158,7 @@ namespace NoteOne.Persistence.Migrations
 
             modelBuilder.Entity("NoteOne.Domain.User", b =>
                 {
-                    b.Navigation("Categories");
+                    b.Navigation("Categorys");
                 });
 #pragma warning restore 612, 618
         }

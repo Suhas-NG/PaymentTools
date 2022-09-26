@@ -16,6 +16,7 @@ namespace NoteOne.Domain
         public string? PageName { get; set; }
         public string? PageTitle { get; set; }
         public List<Note>? Notes { get; set; }
+        public DateTime Created { get; set; }
 
     }
 }

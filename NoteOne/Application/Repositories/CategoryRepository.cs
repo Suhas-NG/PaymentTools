@@ -7,7 +7,7 @@ namespace NoteOne.Infrastructure.Repositories
 {
     public class CategoryRepository : GenericRepository<Category> , ICategoryRepository
     {
-        public CategoryRepository(NoteOneDBContext context) : base(context)
+        public CategoryRepository() : base(new NoteOneDBContext())
         {
 
         }
@@ -39,6 +39,11 @@ namespace NoteOne.Infrastructure.Repositories
             }
         }
 
+        public List<Category> GetAll(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Save()
         {
            int save = context.SaveChanges();
@@ -57,9 +62,11 @@ namespace NoteOne.Infrastructure.Repositories
             return base.Update(category);
         }
 
-        bool ICategoryRepository.Add(Category entity)
+        Category? ICategoryRepository.Add(Category entity)
         {
-            throw new NotImplementedException();
+            context.Add(entity);
+            return entity;
         }
+
     }
 }

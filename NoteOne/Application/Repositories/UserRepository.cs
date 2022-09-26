@@ -7,9 +7,8 @@ namespace NoteOne.Infrastructure.Repositories
 {
     public class UserRepository : GenericRepository<User>, IUserRespository
     {
-        public UserRepository(NoteOneDBContext context):base(context)
+        public UserRepository():base(new NoteOneDBContext())
         {
-
         }
 
         public void Delete(Guid id)
@@ -37,14 +36,19 @@ namespace NoteOne.Infrastructure.Repositories
             base.SaveChanges();
         }
 
+        public override User Get(Guid id)
+        {
+            return context.Users.Where(u => u.Guid == id)
+                .First();
+        }
         public override User Update(User entity)
         {
             var user = context?.Users?
                 .Single(u => u.Guid == entity.Guid);
-            if (user == null)
-            {
-                return null;
-            }    
+
+           if( user == null )
+                throw new Exception("Unable to Update Users");
+           
             user.UserName = entity.UserName;
             return base.Update(user);
         }
