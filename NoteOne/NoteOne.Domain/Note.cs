@@ -12,6 +12,7 @@ namespace NoteOne.Domain
         public Guid Guid { get; set; }
         public string? Description { get; set; }
         public DateTime Created { get; set; }
+        public Guid? PageGuid { get; set; }
     }
 
 }

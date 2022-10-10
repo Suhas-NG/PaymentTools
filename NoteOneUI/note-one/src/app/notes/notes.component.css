@@ -1,0 +1,98 @@
+.category-list {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.category-list-item {
+    background-color: rgb(94, 77, 156);
+    border-width: 0;
+    color: azure;
+    border-radius: 25px;
+    padding: 5px;
+    margin: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+
+.category-list> button:focus {
+    background-color: rgb(109, 20, 20); 
+    border-color: rgb(109, 20, 20);
+}
+
+.page-tab {
+    display: none;
+    margin-top: -60px;
+    z-index: 1;
+    position:absolute;
+    background-color: rgba(74, 52, 174, 0.99);
+    height: 100%;
+    border-top-right-radius: 60px;
+    color: white;
+}
+
+.page-tab-btn 
+{
+    font-size: large;
+    color: white;
+    background-color: rgba(74, 52, 174, 0.99);
+    margin-left: 10px;
+    z-index: 2;
+    height: 50px;
+    margin-top: 20px;
+    position: relative;
+    display: block;
+    border-width: 5px;
+    border-color: white;
+    border-bottom-color: white;
+    border-radius: 50px;
+}
+
+.page-tab-btn:focus + .page-tab {
+    display: block;
+}
+.page-list {
+    margin-top: 100px;
+}
+.page-list-item {
+    margin: 0;
+    padding: 6px;
+    min-width: 120px;
+    border-left: 3px;
+    text-align: center;
+}
+
+.page-contents {
+    background-color:  rgba(127, 141, 189, 0.725);
+    margin-top: 20px;
+    justify-content: left;
+    display: flex;
+    flex-wrap:  wrap;
+    padding: 0px;
+    align-items: baseline;
+}
+
+.note-card {
+    background-color: white;
+    margin-left: 30px;
+    min-width: 200px;
+    text-align: center;
+    border-radius: 2px;
+    margin: 20px;
+}
+
+.note-contents {
+    margin: 10px;
+    padding: 10px;
+    max-width: 300px;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.note-button-list {
+    padding: 0px;
+}

@@ -8,8 +8,15 @@ namespace NoteOne.Infrastructure.Repositories
 {
     public class PageRepository : GenericRepository<Page>, IPageRepository
     {
-        public PageRepository(NoteOneDBContext context) : base(context)
+        public PageRepository() : base(new NoteOneDBContext())
         {
+
+        }
+
+        public bool Delete(Page entity)
+        {
+            var result = context.Pages.Remove(entity);
+            return context.SaveChanges() > 0;
         }
 
         public override IEnumerable<Page> Find(Expression<Func<Page, bool>> predicate)
@@ -18,6 +25,16 @@ namespace NoteOne.Infrastructure.Repositories
                 .Include(o => o.Notes)
                 .Where(predicate)
                 .ToList();
+        }
+
+        public override Page Add(Page entity)
+        {
+            return base.Add(entity);
+        }
+        public bool Save()
+        {
+            int save = context.SaveChanges();
+            return save > 0;
         }
     }
 }

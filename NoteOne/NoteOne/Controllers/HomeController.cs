@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NoteOne.Application.Categories.Commands.CreateCategory;
+using NoteOne.Application.Categories.Commands.CreateNote;
+using NoteOne.Application.Categories.Commands.CreateNote.Factory;
+using NoteOne.Application.Categories.Commands.CreatePage;
 using NoteOne.Application.Categories.Queries;
 using NoteOne.Application.Queries;
 using NoteOne.Domain;
@@ -15,10 +18,14 @@ namespace NoteOne.Controllers
     {
         private readonly IGetUserCategoriesQuery _getUsersQuery;
         private readonly ICreateCategoryCommand _createCategoryCommand;
-        public HomeController(IGetUserCategoriesQuery getUsersQuery, ICreateCategoryCommand createCategoryCommand)
+        private readonly ICreatePageCommand _createPageCommand;
+        private readonly ICreateNoteCommand _createNoteCommand;
+        public HomeController(IGetUserCategoriesQuery getUsersQuery, ICreateCategoryCommand createCategoryCommand, ICreatePageCommand createPageCommand, ICreateNoteCommand createNoteCommand)
         {
             _getUsersQuery = getUsersQuery;
             _createCategoryCommand = createCategoryCommand;
+            _createPageCommand = createPageCommand;
+            _createNoteCommand= createNoteCommand;
         }
 
         // GET: api/<HomeController>
@@ -44,6 +51,46 @@ namespace NoteOne.Controllers
             } else
             {
                 return Ok(result); 
+            }
+        }
+
+        [HttpPost("Home/{id}/CategoryPage")]
+        public ActionResult CreatePage(Guid id, [FromBody] CreatePageRequest request)
+        {
+            CreatePageModel createPageModel = new CreatePageModel()
+            {
+                CategoryGuid = request.categoryGuid,
+                pageName = request.pageName,
+                pageTitle = request.pageTitle
+                
+            };
+            var result = _createPageCommand.Execute(createPageModel);
+            if (result == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(result);
+            }
+        } 
+
+        [HttpPost("Home/{id}/PageNote")]
+        public ActionResult CreateNote(Guid id, [FromBody] CreateNoteRequest request)
+        {
+            CreateNoteModel createNoteModel = new CreateNoteModel()
+            {
+                description = request.Description,
+                pageGuid = id 
+            };
+            var result = _createNoteCommand.Execute(createNoteModel);
+            if (result == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(result);
             }
         }
 

@@ -13,7 +13,7 @@ namespace NoteOne.Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost; Database=NoteOne; Username=postgres; Password=postgres").LogTo(Console.WriteLine);
+            optionsBuilder.UseNpgsql("Host=localhost; Database=NoteOne; Username=postgres; Password=postgres");
         } 
      }
 }

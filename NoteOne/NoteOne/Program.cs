@@ -1,5 +1,9 @@
 using NoteOne.Application.Categories.Commands.CreateCategory;
 using NoteOne.Application.Categories.Commands.CreateCategory.Factory;
+using NoteOne.Application.Categories.Commands.CreateNote;
+using NoteOne.Application.Categories.Commands.CreateNote.Factory;
+using NoteOne.Application.Categories.Commands.CreatePage;
+using NoteOne.Application.Categories.Commands.CreatePage.Factory;
 using NoteOne.Application.Categories.Queries;
 using NoteOne.Application.Interfaces;
 using NoteOne.Common;
@@ -8,18 +12,29 @@ using NoteOne.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Queries
 builder.Services.AddTransient<IGetUserCategoriesQuery, GetUserCategoriesQuery>();
-builder.Services.AddTransient<ICreateCategoryCommand, CreateCategoryCommand>();
-builder.Services.AddTransient<ICategoryFactory, CategoryFactory>();
 
+//comamnds
+builder.Services.AddTransient<ICreateCategoryCommand, CreateCategoryCommand>();
+builder.Services.AddTransient<ICreatePageCommand, CreatePageCommand>();
+builder.Services.AddTransient<ICreateNoteCommand, CreateNoteCommand>();
+
+//factories
+builder.Services.AddTransient<ICategoryFactory, CategoryFactory>();
+builder.Services.AddTransient<IPageFactory, PageFactory>();
+builder.Services.AddTransient<INoteFactory, NoteFactory>();
+
+//common services
 builder.Services.AddTransient<IDateService, DateService>();
 
-//builder.Services.AddTransient<INoteRepository, NoteRepository>();
-//builder.Services.AddTransient<IPageRepository, PageRepository>();
+//Repositories
+builder.Services.AddTransient<INoteRepository, NoteRepository>();
+builder.Services.AddTransient<IPageRepository, PageRepository>();
 builder.Services.AddTransient<IUserRespository, UserRepository>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-//builder.Services.AddTransient<ICreateCategoryCommand, CreateCategoryCommand>();
-//builder.Services.AddTransient<IGetUserCategoriesQuery, GetUserCategoriesQuery>();
+builder.Services.AddTransient<ICreateCategoryCommand, CreateCategoryCommand>();
+builder.Services.AddTransient<IGetUserCategoriesQuery, GetUserCategoriesQuery>();
 
 // Add services to the container.
 

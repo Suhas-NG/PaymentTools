@@ -1,0 +1,29 @@
+<body>
+  <div>
+    Search Bar
+  </div>
+  <div *ngIf="categories" class="Categories-tab" >
+    <h3>Categories</h3>
+    <div class="category-list">
+      <button class="category-list-item" *ngFor="let category of categories">{{category}}</button>
+    </div>
+  </div>
+  <button class="page-tab-btn">pages</button>
+  <div class="page-tab" *ngIf="pages" id="page-tab">
+    <div class="page-list">
+      <div class="page-list-item" *ngFor="let page of pages"><a>{{page}}</a></div>
+    </div>
+  </div>
+  
+  <div class="page-contents">
+    <div class="note-card" *ngFor="let note of notes">
+       <ul class="note-button-list">
+          <button>delete</button>
+          <button>add tag</button>
+          <button>add Pin</button>
+       </ul>
+       <label>created at 5:29</label>
+       <p class="note-contents"> {{note}}</p>
+    </div>
+  </div>
+</body>
