@@ -4,47 +4,48 @@
 }
 
 .logo {
-    margin: 2rem;
+    margin: 0rem;
     max-width: 4rem;
     min-width: 4rem;
 }
+.logo-div {
+    margin: 0px;
+    padding: 0px;
+}
+
+.app-name {
+    margin-right: auto;
+    align-self: center;
+    color: white;
+}
+
+.primary-navigation > li >a {
+    list-style: none; 
+    color: white;   
+}
 
 .primary-header {
+    margin: 0px;
+    padding: 0px;
     justify-content: space-between;
     align-items: center;
-
+    display: flex;
+    background-color: rgb(47, 47, 129);
 }
 
 .primary-navigation {
+    display: flex;
+    gap: var(--gap, 2rem);
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
 }
 
 .primary-navigation a {
     text-decoration: none;
 }
 
-.primary-navigation a > [aria-hidden="true"] {
-    font-weight: 700;
-    margin-inline-end: 0.75em;
-}
-
-@media (max-width: 35em) {
-    .primary-navigation {
-        --gap:2em;
-        position: fixed;
-        inset: 0 0 0 30%;
-
-        
-        flex-direction: column;
-        padding: min(20vh, 10rem) 2em ;
-    }
-}
-
-@supports (backdrop-filter: blur(1rem)) {
-    .primary-navigation {
-        background: hsl(0 0% 50% / 0.1);
-        backdrop-filter: blur(2rem);
-    }
+.something {
+    background-color: red;
+    height: 300px;
 }

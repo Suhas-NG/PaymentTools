@@ -8,7 +8,7 @@ namespace PaymentTools.Application.Models
 {
     public class Tlv
     {
-        public Tlv(string tag, string lengthString, int lengthValue, string value, List<Tlv> subTlvs)
+        public Tlv(string tag, string lengthString, int lengthValue, string value, List<Tlv> subTlvs )
         {
             this.tag = tag;
             this.lengthString = lengthString;

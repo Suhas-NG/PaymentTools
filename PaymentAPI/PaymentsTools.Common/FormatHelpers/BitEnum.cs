@@ -1,4 +1,4 @@
-﻿namespace PaymentTools.Application.Models
+﻿namespace PaymentTools.Common
 {
     public enum BitEnum{
         Bit1 = 1,

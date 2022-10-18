@@ -1,0 +1,81 @@
+.list-item {
+    padding-top: 0px;
+}
+
+.tag-info {
+    display: flex;
+    padding-bottom: 0px;
+}
+
+.tlv-value {
+    max-width: fit-content;
+    word-wrap: break-word;
+}
+
+.sub-tree {
+    margin-left: 20px;
+}
+.tag-info > button {
+    position: absolute;
+    border: none;
+    background: none;
+    margin: 0px;
+    padding: 0px;
+    min-width: 25px;
+    min-height: 25px;
+    font-size: 20px;
+    font-stretch: expanded;
+    text-align: center;
+}
+
+.expand-button {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(17, 1, 1);
+}
+
+.expand-button:focus {
+    background-color: red;   
+}
+
+.expand-button:focus .sub-tree{
+    display: block;
+}
+
+.tag-header {
+    min-width: 300px;
+    max-width: 320px;
+    display: flex;
+    gap: 5px;
+    list-style: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.tlv-value {
+    max-width: 200px;
+    word-wrap: break-word;
+}
+
+.tag-details-tool-tip{
+    min-width: 600px;
+    position: absolute;
+    background-color: red;
+}
+
+.tag-details-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+}
+.tag-details-container p {
+    padding: 10px;
+    text-align: center;
+    min-width: 200px;
+    word-wrap: break-word;
+}

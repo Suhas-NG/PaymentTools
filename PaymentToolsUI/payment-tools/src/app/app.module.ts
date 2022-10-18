@@ -6,18 +6,26 @@ import { Home } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { TlvAnalyzerComponent } from './tlv-analyzer/tlv-analyzer.component';
+import { TlvComparerComponent } from './tlv-comparer/tlv-comparer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { TlvCompareTreeComponent } from './tlv-compare-tree/tlv-compare-tree.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     Home,
-    TlvAnalyzerComponent
+    TlvAnalyzerComponent,
+    TlvComparerComponent,
+    TlvCompareTreeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

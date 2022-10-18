@@ -1,0 +1,22 @@
+<div class="compare-tab">
+
+    <div class="tlv-input">
+        <label>Input Tlv1</label>
+        <input type="text"[(ngModel)]="tlvInput1" />
+    </div>
+    <div class="tlv-input">
+        <label>Input Tlv2</label>
+        <input type="text" [(ngModel)]="tlvInput2" />
+    </div>
+    <div class="compare-btn-container">
+        <button class="compare-btn" (click)="onCompare()">Compare</button>
+    </div>
+    <div class="tlv-tree-container" *ngIf="treeContainerVisible">
+        <ul>
+            <li>Tlv1</li>
+            <li>Tlv2</li>
+        </ul>
+        <app-tlv-compare-tree class="tlv-tree" [TlvCompareResults]="tlvCompareResults"></app-tlv-compare-tree>
+    </div>
+</div>
+

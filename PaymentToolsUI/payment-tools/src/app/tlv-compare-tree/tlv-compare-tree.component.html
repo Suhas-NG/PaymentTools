@@ -1,0 +1,26 @@
+<div class="list-item" *ngFor="let tlvCompareResult of TlvCompareResults">  
+    <div class="tag-info">
+        <button (click)="onSubTreeExpandClick()" *ngIf="tlvCompareResult.hasSubTree">{{SubTreeBtnText}}</button> 
+        <ul class="tag-header">
+            <li>{{tlvCompareResult.tlv1Tag}}</li>
+            <li class="tlv-value">{{tlvCompareResult.tlv1Value}}</li>       
+        </ul>
+        <ul class="tag-header">
+            <li>{{tlvCompareResult.tlv2Tag}}</li>
+            <li class="tlv-value">{{tlvCompareResult.tlv2Value}}</li>      
+        </ul>   
+    </div>
+    <div class="tag-details-tool-tip" *ngIf="false">
+        <div class="tag-details-container">
+            <p>
+                Descritption1 asdlkjasldjasldkjlaskjdlaskjdlakjlakdsjasldkaj
+            </p>
+            <p>
+                Descritption2 
+            </p>
+        </div>  
+    </div>  
+    <div class="sub-tree" *ngIf="( tlvCompareResult.hasSubTree )&& (SubTreeVisisble)">
+        <app-tlv-compare-tree  [TlvCompareResults]="tlvCompareResult.subTrees"></app-tlv-compare-tree> 
+    </div>
+</div> 

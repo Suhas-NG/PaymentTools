@@ -4,6 +4,7 @@ namespace PaymentTools.Application.Models
 {
     public class TlvCollection
     {
+        public string collectionName { get; set; }  
         public TlvCollection(List<Tlv> tlvs)
         {
             this._tlvs = tlvs;
