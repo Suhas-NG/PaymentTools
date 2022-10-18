@@ -22,7 +22,6 @@ namespace PaymentTools.Application.Models.TlvDescriptionModel
             });
             return stringBuilder.ToString();
         }
-
         
         protected abstract bool InitializeTlv(Tlv tlv);    
 

@@ -12,10 +12,6 @@ namespace PaymentTools.Application.Models.TlvDescriptionModel
         {
             tagName = "";
         }
-        protected override string GetTlvDetails()
-        {
-            return string.Empty;
-        }
 
         protected override bool InitializeTlv(Tlv tlv)
         {
