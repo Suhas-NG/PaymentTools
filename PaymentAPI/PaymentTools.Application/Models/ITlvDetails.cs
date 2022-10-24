@@ -7,6 +7,6 @@ namespace PaymentTools.Application.Models
         string GetDetails { get; }
         string GetTagName { get; }  
         string GetValueDetailsString { get; }
-        Dictionary<string, BitNameMeaning> tagValueDetails { get; }
+        Dictionary<string, TLvValueDescription> tagValueDetails { get; }
     }
 }

@@ -41,6 +41,7 @@ namespace PaymentTools.Application.Models
                 var nestedTlv1 = new List<Tlv>();
                 var nestedTlv2 = new List<Tlv>();
                 bool hasSubStree = false;
+
                 if(tc1Present && tlv1.hasNestedTlvs)
                 {
                     nestedTlv1 = tlv1.nestedTlvs.Tlvs;

@@ -1,4 +1,5 @@
 ﻿using PaymentsTools.Common.FormatHelpers;
+using PaymentTools.Application.Data;
 using PaymentTools.Application.Models;
 
 
@@ -7,7 +8,7 @@ namespace PaymentTools.Application.Helpers
     public class TlvParser
     {
         private const int MAX_TAG_LENGTH_COUNT = 10;
-        private const int MAX_TAG_RECURSION = 3;
+        private const int MAX_NESTED_TAG_RECURSION = 3;
         private  List<byte> StringToByteArray(string hex)
         {
             return Enumerable.Range(0, hex.Length)
@@ -22,6 +23,7 @@ namespace PaymentTools.Application.Helpers
             {
                 return result;
             }
+
             tlvHexString = tlvHexString.ToUpper();
             List<byte> tlvBytes = StringToByteArray(tlvHexString);
 
@@ -42,7 +44,13 @@ namespace PaymentTools.Application.Helpers
                         if (tag.Length > MAX_TAG_LENGTH_COUNT) throw new Exception("Tag length above max");
                     } while (currentByte.IsBitSet(8)); 
                 }
-                // Mark as primitive or not
+                
+                //Special tags
+                if (Constants.SPECIAL_TAGS.Contains(tag))
+                {
+                    i ++;
+                    tag = tag + tlvBytes[i].ToString("X2");
+                }
 
                 //length
                 i++;
@@ -70,7 +78,7 @@ namespace PaymentTools.Application.Helpers
                 }
 
                 List<Tlv> nestedTlvs = new List<Tlv>();
-                if (isNestedTag && recursionCount < MAX_TAG_RECURSION)
+                if (isNestedTag && recursionCount < MAX_NESTED_TAG_RECURSION)
                 {
                     recursionCount++;
                     nestedTlvs = ParseHexString(value, recursionCount);
@@ -83,7 +91,16 @@ namespace PaymentTools.Application.Helpers
             return result;
         }
 
-        public  int getLengthValue(string lengthString)
+        private void IdentifyValue()
+        {
+
+        }
+        private void IdentifyTag()
+        {
+
+        }
+
+        public int getLengthValue(string lengthString)
         {
             int result= 0;
 
