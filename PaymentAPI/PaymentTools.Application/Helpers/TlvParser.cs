@@ -46,11 +46,17 @@ namespace PaymentTools.Application.Helpers
                 }
                 
                 //Special tags
-                if (Constants.SPECIAL_TAGS.Contains(tag))
+                if (tag =="57" || tag =="5A" && i+1 < tlvBytes.Count())
                 {
-                    i ++;
-                    tag = tag + tlvBytes[i].ToString("X2");
+                    string nextByte = tag + tlvBytes[i+1].ToString("X2");
+                    if(Constants.SPECIAL_TAGS.Contains(nextByte))
+                    {
+                        i++;
+                        tag = nextByte;
+                    }    
                 }
+
+                string tagName = TagNames.GetName(tag);
 
                 //length
                 i++;
@@ -85,6 +91,7 @@ namespace PaymentTools.Application.Helpers
                 }
 
                 Tlv resultTlv = new Tlv(tag, length, lengthSave, value, nestedTlvs);
+                resultTlv.tagName = tagName;    
                 result.Add(resultTlv);
                 i++;
             }   

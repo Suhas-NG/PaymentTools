@@ -16,6 +16,7 @@ namespace PaymentTools.Application.Models
             }
         }
 
+        public string tagName { get; set; } 
         public ITlvDetails tlvDetails { get; set; }
         public string tag { get; set; } 
         public string lengthString { get; set; }
