@@ -12,11 +12,5 @@ namespace PaymentTools.Application.Models.TlvDescriptionModel
         {
             tagName = "";
         }
-
-        protected override bool InitializeTlv(Tlv tlv)
-        {
-            bool result = false;
-            return result;
-        }
     }
 }

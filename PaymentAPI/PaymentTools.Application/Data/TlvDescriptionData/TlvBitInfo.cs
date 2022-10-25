@@ -4,11 +4,10 @@ namespace PaymentTools.Application.Models.TlvDescriptionModel
 {
     public class TlvBitInfo
     {
-        public TlvBitInfo(BitEnum bit, string meaning, string value )
+        public TlvBitInfo(BitEnum bit, string meaning )
         {
             bitNumber = bit;
             bitMeaning = meaning;
-            bitValue = value;
         }
 
         public BitEnum bitNumber = BitEnum.Null;

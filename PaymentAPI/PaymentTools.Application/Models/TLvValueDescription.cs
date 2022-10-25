@@ -1,6 +1,4 @@
-﻿using PaymentTools.Application.Data;
-using PaymentTools.Application.Models.TlvDescriptionModel;
-using PaymentTools.Common;
+﻿using PaymentTools.Application.Models.TlvDescriptionModel;
 
 namespace PaymentTools.Application.Models
 {

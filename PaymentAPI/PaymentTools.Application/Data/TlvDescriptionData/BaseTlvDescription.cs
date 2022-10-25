@@ -6,29 +6,25 @@ namespace PaymentTools.Application.Models.TlvDescriptionModel
 {
     public abstract class BaseTlvDescription
     {
-        protected List<TLvValueDescription> bitNameMeanings;
         protected List<TlvByteMeaning> tlvByteMeaning = new List<TlvByteMeaning>() { };
-        protected Tlv tlv { get; set; }
-        protected string tagName;
-        protected string tagDescription;
-        protected string GetTlvDetails()
+        public string tagName = string.Empty;
+        public string tag = string.Empty;   
+        public string tagAdditionalInfo = string.Empty;
+        public string GetTlvDetails(Tlv tlv)
         {
             StringBuilder stringBuilder = new StringBuilder();
             TlvBytes tlvBytes = new TlvBytes(tlv.value);
 
             tlvByteMeaning.ForEach(x =>
             {
-                stringBuilder.Append("Byte Number: " + x.byteEnum.ToString());   
+                stringBuilder.AppendLine(x.byteEnum.ToString()+ " "+x.byteMeaning);   
                 x.bitInfo.ForEach(bits =>
                 {
-                    stringBuilder.AppendLine( "Bit"+ bits.bitNumber.ToString()+" "+bits.bitMeaning+"->" +tlvBytes.IsBitSet(x.byteEnum, bits.bitNumber).ToString());
+                    stringBuilder.AppendLine( bits.bitNumber.ToString()+" "+bits.bitMeaning+"->" +tlvBytes.IsBitSet(x.byteEnum, bits.bitNumber).ToString());
                });
             });
-
-            tagDescription = stringBuilder.ToString();  
             return stringBuilder.ToString();
         }
         
-        protected abstract bool InitializeTlv(Tlv tlv);    
     }
 }
